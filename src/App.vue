@@ -1,17 +1,6 @@
-<template>{{ count }}</template>
-<script>
-import { ref } from "vue";
-export default {
-  setup() {
-    const count = ref(0);
-
-    setInterval(() => {
-      count.value = count.value + 1;
-    }, 1000);
-
-    return {
-      count,
-    };
-  },
-};
-</script>
+<template><div class="title font-big">hello</div></template>
+<style lang="scss">
+.font-big {
+  font-size: 60px;
+}
+</style>
