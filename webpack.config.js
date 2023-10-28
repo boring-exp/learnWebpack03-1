@@ -87,15 +87,15 @@ const config = {
   devServer,
   // 改写打包后文件大小限制，否则webpack会有告警
   performance: {
-    maxEntrypointSize: 1024 * 1024,
-    maxAssetSize: 1024 * 1024 // 1mb
+    maxEntrypointSize: 1024 * 1024 * 3,
+    maxAssetSize: 1024 * 1024 * 3 // 1mb
   },
 }
 
 const configFn = (env) => {
   console.log(env)
   if (env.mode === 'dev') {
-    config.devtool = 'source-map'
+    config.devtool = 'eval-source-map'
   }
   return config
 }
