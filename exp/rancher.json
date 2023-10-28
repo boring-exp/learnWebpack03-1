@@ -1,0 +1,22 @@
+{
+  "stage": [
+    {
+      "name": "Build something",
+      "when": {
+        "branch": "master",
+        "event": ["push", "pull_request"],
+        "steps": [
+          {
+            "runScriptConfig": {
+              "image": "busybox",
+              "shellScript": "echo ${FIRST_KEY} && echo ${ALIAS_ENV}"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "Publish my image"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+<xml>
+  <ToUserName>wx</ToUserName>
+  <FromUserName>tx</FromUserName>
+  <CreateTime>1348831860</CreateTime>
+  <MsgType>text</MsgType>
+  <Content>这是一个xml格式的消息</Content>
+  <MsgId>1234567890123456</MsgId>
+  <MsgDataId>2023/10/28</MsgDataId>
+  <Idx>0dsfsafdsaffer</Idx>
+</xml>

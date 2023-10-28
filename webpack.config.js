@@ -63,6 +63,13 @@ const config = {
         generator: {
           filename: 'fonts/[name].[hash:8][ext]'
         }
+      },
+      // 自定义loader，处理文本文件
+      {
+        test: /\.txt$/, 
+        use: {
+          loader: path.resolve(process.cwd(), './loader/txt-loader.js')
+        }
       }
     ]
   },
