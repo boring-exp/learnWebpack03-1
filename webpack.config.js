@@ -4,9 +4,26 @@ import { VueLoaderPlugin } from 'vue-loader'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import CopyPlugin from 'copy-webpack-plugin'
-import {CleanWebpackPlugin } from 'clean-webpack-plugin'
+import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 import webpack from 'webpack';
 const { ProgressPlugin } = webpack;
+
+// 不用管产物路径
+const devServer = {
+  // static: {
+  //   directory: path.join(__dirname, 'public'),
+  // },
+  compress: true,
+  port: 9000,
+  allowedHosts: ['test.hahah.com'],
+  client: {
+    progress: true,
+  },
+  proxy: {
+    '/api': 'http://localhost:3000',
+  },
+}
+
 
 const config = {
   entry: './src/main.js',
@@ -68,7 +85,12 @@ const config = {
     }),
     new CleanWebpackPlugin(),
     new ProgressPlugin()
-  ]
+  ],
+  devServer,
+  performance: {
+    maxEntrypointSize: 1024 * 1024,
+    maxAssetSize: 1024 * 1024 // 1mb
+  }
 }
 
 export default config
