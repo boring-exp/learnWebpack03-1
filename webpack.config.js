@@ -70,6 +70,18 @@ const config = {
         use: {
           loader: path.resolve(process.cwd(), './loader/txt-loader.js')
         }
+      },
+      {
+        test: /\.xml$/,
+        use: {
+          loader: path.resolve(process.cwd(), './loader/xml-loader.js')
+        }
+      },
+      {
+        test: /\.yml$/,
+        use: {
+          loader: path.resolve(process.cwd(), './loader/yml-loader.js')
+        }
       }
     ]
   },
