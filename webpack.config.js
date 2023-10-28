@@ -7,6 +7,8 @@ import CopyPlugin from 'copy-webpack-plugin'
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 import webpack from 'webpack';
 const { ProgressPlugin } = webpack;
+import { FileListPlugin } from './plugin/FileListPlugin.js'
+import {HtmlDemoPlugin} from './plugin/HtmlDemoPlugin.js'
 
 // 不用管产物路径
 const devServer = {
@@ -90,7 +92,7 @@ const config = {
     new MiniCssExtractPlugin({
       filename: 'css/[name].[fullhash:8].css'
     }),
-    new HtmlWebpackPlugin({
+    new HtmlDemoPlugin({
       template: './index.html'
     }),
     new CopyPlugin({
@@ -101,7 +103,10 @@ const config = {
       ]
     }),
     new CleanWebpackPlugin(),
-    new ProgressPlugin()
+    new ProgressPlugin(),
+    new FileListPlugin({
+      outputFile: 'my-assets.md',
+    }),
   ],
   devServer,
   // 改写打包后文件大小限制，否则webpack会有告警
