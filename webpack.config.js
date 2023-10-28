@@ -19,9 +19,7 @@ const devServer = {
   client: {
     progress: true,
   },
-  proxy: {
-    '/api': 'http://localhost:3000',
-  },
+  watchFiles: ['src/**/*', 'public/**/*'], // dev server自动刷新
 }
 
 
@@ -87,10 +85,19 @@ const config = {
     new ProgressPlugin()
   ],
   devServer,
+  // 改写打包后文件大小限制，否则webpack会有告警
   performance: {
     maxEntrypointSize: 1024 * 1024,
     maxAssetSize: 1024 * 1024 // 1mb
-  }
+  },
 }
 
-export default config
+const configFn = (env) => {
+  console.log(env)
+  if (env.mode === 'dev') {
+    config.devtool = 'source-map'
+  }
+  return config
+}
+
+export default configFn

@@ -1,24 +1,20 @@
 <template>
-  <div class="title font-big">hello world</div>
+  <div class="title font-big">hello world!!!</div>
   <img :src="url" />
   <img :src="pubUrl" />
 </template>
 <script>
-import {ref, onMounted} from 'vue'
+import {ref} from 'vue'
 import testImg from './assets/test.png'
 import otherImg from './assets/other.jpg'
-import axios from 'axios'
 // const http = axios.create({
 //   baseURL: 'http://localhost:3000'
 // })
 export default {
   setup() {
 
-    onMounted(() => {
-      axios.get('/api/login')
-    })
-
     const url = ref(testImg)
+    console.log(url)
     setTimeout(() => {
       url.value = otherImg
     }, 3000)
