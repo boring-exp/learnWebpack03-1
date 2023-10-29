@@ -22,6 +22,7 @@
     "sass": "^1.69.4",
     "sass-loader": "^13.3.2",
     "style-loader": "^3.3.3",
+    "tapable": "^2.2.1",
     "vue": "^3.3.6",
     "vue-loader": "^17.3.0",
     "webpack": "^5.89.0",
