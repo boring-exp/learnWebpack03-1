@@ -7,6 +7,7 @@ import CopyPlugin from 'copy-webpack-plugin'
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
 import webpack from 'webpack';
 const { ProgressPlugin } = webpack;
+import { FileListWebpackPlugin } from './plugin/FileList.js'
 
 // 不用管产物路径
 const devServer = {
@@ -66,7 +67,7 @@ const config = {
       },
       // 自定义loader，处理文本文件
       {
-        test: /\.txt$/, 
+        test: /\.txt$/,
         use: {
           loader: path.resolve(process.cwd(), './loader/txt-loader.js')
         }
@@ -101,7 +102,10 @@ const config = {
       ]
     }),
     new CleanWebpackPlugin(),
-    new ProgressPlugin()
+    new ProgressPlugin(),
+    new FileListWebpackPlugin({
+      filename: 'info-monitor.md'
+    })
   ],
   devServer,
   // 改写打包后文件大小限制，否则webpack会有告警
